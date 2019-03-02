@@ -9,7 +9,7 @@ class Album extends Component {
       return album.slug === this.props.match.params.slug
     });
     this.state= {
-      album: album
+      album: album,
     };
   }
   render() {
@@ -30,7 +30,13 @@ class Album extends Component {
              <col id="song-duration-column" />
            </colgroup>
            <tbody>
-           </tbody>
+                        {this.state.album.songs.map( (song, index) =>
+                            <tr key={index}>
+                            <td>{song.title}</td>
+                            <td>{song.duration}</td>
+
+                            </tr>)}
+                    </tbody>
          </table>
   </section>
 );
