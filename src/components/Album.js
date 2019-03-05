@@ -11,7 +11,9 @@ class Album extends Component {
     this.state= {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHovered: false
+
     };
 
     this.audioElement = document.createElement('audio');
@@ -43,8 +45,23 @@ class Album extends Component {
     }
   }
 
+  onHover(index) {
+      this.setState({ isHovered: index });
+  }
 
+  offHover() {
+      this.setState({ isHovered: false });
+  }
 
+  hoverIcon(song, index) {
+        if (this.state.currentSong === song && this.state.isPlaying) {
+            return <span className="icon ion-md-pause" />;
+        } else if (this.state.isHovered === index) {
+            return <span className="icon ion-md-play-circle" />;
+        } else {
+            return <span className="song-number">{index + 1}</span>;
+        }
+    }
 
 
 
@@ -65,16 +82,18 @@ class Album extends Component {
              <col id="song-title-column" />
              <col id="song-duration-column" />
            </colgroup>
-           <tbody>
-                        {this.state.album.songs.map( (song, index) =>
-                            <tr className="song" key={index} onClick={()=> this.handleSongClick(song)}>
-                            <td>{index + 1}</td>
-                            <td>{song.title}</td>
-                            <td>{song.duration}</td>
 
-                            </tr>)}
-                    </tbody>
+           <tbody>
+             {this.state.album.songs.map( (song, index) =>
+            <tr className="song" key={index} onClick={()=> this.handleSongClick(song)}onMouseEnter={() => this.onHover(index)} onMouseLeave={() => this.offHover()}>
+                                <td className="song-number">{this.hoverIcon(song, index)}</td>
+                                <td className="song-title">{song.title}</td>
+                              <td className="song-duration">{song.duration}</td>
+                              </tr> )
+               }
+         </tbody>
          </table>
+
   </section>
 );
 }
