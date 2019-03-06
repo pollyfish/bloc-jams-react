@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
+import PlayerBar from './PlayerBar';
 
 class Album extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
-      isHovered: false
-
+      isHovered: false,
+      isPaused: true
 
     };
 
@@ -45,6 +46,13 @@ class Album extends Component {
       this.play();
     }
   }
+  handlePrevClick(){
+    const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+      const newIndex = Math.max(0, currentIndex - 1);
+      const newSong = this.state.album.songs[newIndex];
+      this.setSong(newSong);
+      this.play();
+  }
 
   onHover(index) {
       this.setState({ isHovered: index });
@@ -55,28 +63,18 @@ class Album extends Component {
   }
 
   playPauseIcons(song, index) {
-var stupid= this.state.currentSong===song;
-stupid=this.state.isPlaying;
-  {
-    if(this.state.isHovered===index) {
-      //if the current song passed from 56 is playing show pause else show play
-      if (this.state.isPlaying) {
-      return <span className="icon ion-md-play" />;
-    } else {
-      return <span className="icon ion-md-play-circle" />;
-    }      //show pause button if song is currently playing or show play button if that song is paused else show index number
-    }
-    if(this.state.currentSong===song) {
-      return <span className="icon ion-md-pause" />;
+    if (this.state.isPlaying && this.state.isHovered === index && this.state.currentSong === song) {
+      return <span className="icon ion-md-pause"></span>;
+    } else if(this.state.isHovered === index) {
+      return <span className="icon ion-md-play"></span>;
+    } else if (this.state.isPlaying && this.state.currentSong === song) {
+      return <span className="icon ion-md-pause"></span>;
+    } else if (this.state.isPaused && this.state.currentSong === song) {
+      return <span className="icon ion-md-play"></span>;
     } else {
       return <span className="song-number">{index + 1}</span>;
     }
-
-}
-
-    }
-
-
+  }
 
   render() {
     return (
@@ -98,7 +96,7 @@ stupid=this.state.isPlaying;
 
            <tbody>
              {this.state.album.songs.map( (song, index) =>
-               <tr className="song" key={index} onClick={() => this.handleSongClick(song)}
+           <tr className="song" key={index} onClick={() => this.handleSongClick(song)}
                  onMouseEnter={() => this.setState({isHovered: index })}
                  onMouseLeave={ () => this.setState({isHovered: false})}>
                                 <td className="song-number">{this.playPauseIcons(song, index)}</td>
@@ -108,7 +106,12 @@ stupid=this.state.isPlaying;
                }
          </tbody>
          </table>
-
+         <PlayerBar
+           isPlaying={this.state.isPlaying}
+           currentSong={this.state.currentSong}
+           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
+           handlePrevClick={() => this.handlePrevClick()}
+         />
   </section>
 );
 }
