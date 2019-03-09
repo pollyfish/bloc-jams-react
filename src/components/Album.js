@@ -101,29 +101,14 @@ class Album extends Component {
     this.audioElement.currentTime = newTime;
     this.setState({ currentTime: newTime });
   }
-  /*formatTime(e) {
+  formatTime(e) {
     if (this.audioElement.duration>0) {
       return Math.floor(this.audioElement.duration/ 60);}
       else  {
         return "-:--";
     }
-  }*/
-  formatTime(time) {
+  }
 
-      if (isNaN(time) === true || time === undefined ) {
-        return '-:--';
-      }
-      var minutes = Math.floor(time / 60);
-      var seconds = time - minutes * 60;
-      minutes = minutes.toString();
-       if (seconds < 10) {
-        seconds = Math.floor(seconds.toString());
-        return minutes + ":0" + seconds;
-      } else {
-        seconds = Math.floor(seconds.toString());
-        return minutes + ":" + seconds;
-      }
-    }
 
   handleVolumeChange(e) {
   //  const newVolume= this.audioElement.volume * e.target.value;
@@ -190,7 +175,7 @@ class Album extends Component {
            duration={this.audioElement.duration}
            volume={this.audioElement.volume}
           //length={this.audioElement.length}
-           formatTime={(time) => this.formatTime(time)}
+           formatTime={(e) => this.formatTime(e)}
            handleSongClick={() => this.handleSongClick(this.state.currentSong)}
            handlePrevClick={() => this.handlePrevClick()}
            handleNextClick={() => this.handleNextClick()}
