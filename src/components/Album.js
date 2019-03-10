@@ -13,12 +13,12 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       currentTime: 0,
-      volume: 1.0,
+      volume: 0,
       duration: album.songs[0].duration,
       isPlaying: false,
       isHovered: false,
       isPaused: true,
-      time:0
+
 
     };
 
@@ -29,13 +29,11 @@ class Album extends Component {
   componentDidMount() { //used when a component has been added to DOM. used w/ api calls and event handlers
     this.eventListeners = {
      timeupdate: e => { //tells it to display the current time
-
        this.setState({ currentTime: this.audioElement.currentTime });
      },
      durationchange: e => { // tells it to check for duration of song and show current time
-       this.setState({ duration: this.audioElement.duration });
+       this.setState({ duration: this.formatTime(this.audioElement.duration) });
      },
-
      volumechange: e => {
        this.setState({ volume: this.audioElement.volume});
 }
@@ -101,13 +99,15 @@ class Album extends Component {
     this.audioElement.currentTime = newTime;
     this.setState({ currentTime: newTime });
   }
-  formatTime(e) {
-    if (this.audioElement.duration>0) {
-      return Math.floor(this.audioElement.duration/ 60);}
-      else  {
-        return "-:--";
-    }
-  }
+  formatTime(timeInSeconds) {
+          if (timeInSeconds < 10) {
+              return (Math.floor(timeInSeconds / 60)) + ":0" + (Math.floor(timeInSeconds % 60))
+          } else if (timeInSeconds) {
+              return(Math.floor(timeInSeconds / 60 )) + ":" +(Math.floor(timeInSeconds % 60))
+          } else {
+              return "-:--";
+          }
+      }
 
 
   handleVolumeChange(e) {
