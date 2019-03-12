@@ -1,5 +1,24 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+}
+nav {
+  margin-left: 0;
+  margin-top:5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+span.navigationSpace {
+    padding-left: 50px;
+}
+
+
+.album {
+  margin-left: 0px;
+  margin-top:0px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color: #f0f0f5;
+
 }
 
 .App-logo {
@@ -8,9 +27,9 @@
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: #f0f0f5;/*lavender*/
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +39,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #61dafb;/*liteblue*/
 }
 
 @keyframes App-logo-spin {

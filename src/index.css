@@ -1,6 +1,8 @@
 body {
-  margin: 0;
+
+  margin:25px;
   padding: 0;
+  background: #f0f0f5;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -11,4 +13,241 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+table {
+  width:20%;
+  margin-left: 0;
+  margin-top:5px;
+  margin-right: 5px;
+  margin-bottom: 55px;
+}
+
+#table .song-list {
+display: table;
+border-collapse: separate;
+border-spacing: 6px;
+-webkit-border-horizontal-spacing: 6px;
+-webkit-border-vertical-spacing: 6px;
+}
+tbody {
+  display: table-row-group;
+    vertical-align: center;
+    border-color: inherit;
+    padding: 10px;
+}
+.song-title {
+  display: table-cell;
+  vertical-align: inherit;
+  font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+
+}
+
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.seek-bar {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  margin-left: 10;
+  width: 55%; /* Full-width */
+  height: 10px;
+  border-radius: 15px;
+   /* Specified height
+   */
+  background: #ff9933; /* Grey background */
+  outline: #8c8c8c; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.current-time {
+font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+
+}
+.total-time{
+font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+
+}
+
+.volume{
+font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+margin-bottom:5px;
+margin-top:10px;
+}
+#volume-control {
+  margin-top: 15;
+}
+
+.volume-bar {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 25%; /* Full-width */
+  height: 10px;
+  border-radius: 15px;
+   /* Specified height
+   */
+  background:  #ff9933; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1;
+  } /* Fully shown on mouse-over
+}*/
+
+.player-bar {
+  margin-left: 10;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 11px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 2px 2px 2px #000000;
+  background: ##339933;
+  border-radius: 1px;
+  border: 0px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 2px 2px 2px #000000;
+  border: 1px solid #00001E;
+  height: 26px;
+  width: 26px;
+  border-radius: 15px;
+  background: #ffcc66;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+
+
+
+
+.song-number {
+  display: table-cell;
+  vertical-align: inherit;
+  font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+  padding: 0;
+
+}
+.song-duration {
+  display: table-cell;
+  vertical-align: inherit;
+  font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+  padding: 0;
+
+}
+
+
+
+h1 {
+  font-family:fantasy; font-size: 45px; color:  #602060;
+  display: block;
+  margin-block-start: 0.44em;
+  margin-block-end: 0.44em;
+
+
+}
+h2 {
+  font-family:fantasy; font-size: 30px; color: #732673;
+  display: block;
+  margin-block-start: 0.65em;
+  margin-block-end: 0.65em;
+
+
+}
+#buttons {
+
+}
+
+
+#previous {
+  font-size:16px;
+
+}
+#play-pause {
+  font-size:16px;
+}
+#next {
+  font-size:16px;
+}
+
+
+.library /*section on lib page*/{
+  background: #f0f0f5;
+  text-align:center;
+
+}
+#album-cover-lib /*album art on librarypage*/{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  padding: 10px;
+  /*margin-left: 25%;
+  margin-top:5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  height:350px;
+  width:35%;
+  height:50%;
+  background-color: #eeeeee;
+  padding: 10px;
+  margin-left: 0;
+  margin-top:25px;
+  margin-right: 10px;
+  margin-bottom: 42px;
+}*/
+}
+
+.landing {
+text-align:center;
+background-image: url ('../assets/images/blurred_backgrounds/music-icons-circle-.png');
+background-repeat: repeat;
+width: 100%;
+height:100%;
+
+}
+
+
+
+.recordinfo /*album info on librarypage*/{
+  text-align:center;
+  font-family:fantasy; font-size: 16px; color:  #602060;
+
+}
+
+
+#album-cover-art /*left column album page*/{
+  float:left;
+  width:35%;
+  height:285px;
+  background-color: #f0f0f5;
+  padding: 10px;
+  margin-left: 0;
+  margin-top:55px;
+  margin-right: 100px;
+  margin-bottom: 42px;
+}
+
+
+#album-info /*right col*/{
+  background-color: #f0f0f5;
+  padding: 30px;
+  width:100%;
+
+}
+#container { width: 1000px;
+margin: 20px auto 40px;
 }
