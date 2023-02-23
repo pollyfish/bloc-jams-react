@@ -67,11 +67,11 @@ tbody {
 }
 
 .current-time {
-font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+font-family:"Segoe UI"; font-size: 18px; color:  #602060; padding: 12px;
 
 }
 .total-time{
-font-family:"Segoe UI"; font-size: 18px; color:  #602060;
+font-family:"Segoe UI"; font-size: 18px; color:  #602060; padding: 12px;
 
 }
 
