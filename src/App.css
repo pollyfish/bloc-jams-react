@@ -28,7 +28,7 @@ span.navigationSpace {
 }
 
 header {
-  background-color: #f0f0f5;/*lavender*/
+  background-color: #e0e0eb;/*lavender*/
   min-height: 30vh;
   display: flex;
   flex-direction: column;
